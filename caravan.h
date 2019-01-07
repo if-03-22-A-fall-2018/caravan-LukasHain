@@ -15,6 +15,9 @@
 
 #include "pack_animal.h"
 
+typedef struct _node Node;
+
+typedef struct CaravanImplementation List;
 /**
 * Initialisiert eine Karawane. D. h., dass es alle in der Karawane befindlichen Tiere aus der
 * Karawane entfernt und die Karawane als leer kennzeichnet.
@@ -63,6 +66,8 @@ void unload(Caravan caravan);
 * Verteilt die Last der Ballen so auf die einzelnen Tiere, dass die Geschwindigkeit der Karawane
 * maximal ist.
 */
+void optimize_load(Caravan caravan);
+
 void optimize_load(Caravan caravan);
 
 #endif
