@@ -69,6 +69,4 @@ void unload(Caravan caravan);
 */
 void optimize_load(Caravan caravan);
 
-void optimize_load(Caravan caravan);
-
 #endif
