@@ -1,5 +1,4 @@
-#include "caravan.h"
-#include <stdlib.h>
+
 /*-----------------------------------------------------------------------------
  *				HTBLA-Leonding / Class: <your class name here>
  *-----------------------------------------------------------------------------
@@ -12,29 +11,48 @@
  * <your description here>
  *-----------------------------------------------------------------------------
 */
+#include "caravan.h"
+#include <stdlib.h>
+#include "general.h"
 
 struct _node {
    Node* next;
-  void* data;
 };
 
 struct CaravanImplementation {
-  Node head;
+  Node* head;
 };
 
 
 Caravan new_caravan()
 {
-  return (Caravan)malloc(sizeof(List));
+  Caravan caravan = (Caravan)malloc(sizeof(struct CaravanImplementation));
+  caravan->head = 0;
+  return caravan;
 }
 
 int get_length(Caravan caravan)
 {
-  return 0;
+  int count = 0;
+  Node* curr = caravan->head;
+
+  while (curr->next != 0) {
+    curr = curr->next;
+    count++;
+  }
+  return count;
 }
 
 void delete_caravan(Caravan caravan)
 {
+  Node* curr = caravan->head;
+  while(curr !=0){
+    Node* head = caravan->head;
+    caravan->head = head->next;
+    sfree(head);
+  }
+
+  sfree(caravan);
 }
 
 void add_pack_animal(Caravan caravan, PackAnimal animal)
